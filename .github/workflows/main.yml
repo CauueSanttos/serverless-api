@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: npm run build:webpack
 
-      - name: Serverless deploy
+      - name: Serverless Deploy
         run: npx serverless deploy --verbose
         env:
           NODE_ENV: prod
