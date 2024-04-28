@@ -24,6 +24,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
+      - name: Migrate DB
+        run: npx prisma generate
+        run: npx prisma db push
+
       - name: Build
         run: npm run build:webpack
 
