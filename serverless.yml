@@ -1,0 +1,31 @@
+service: serverless-api
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+package:
+  exclude:
+    - ./**
+  include:
+    - dist/**
+
+custom:
+ serverless-offline:
+   httpPort: 4000
+   lambdaPort: 4002
+
+functions:
+  main:
+    handler: dist/main.handler
+    timeout: 30
+    events:
+      - http:
+          method: ANY
+          path: /
+      - http:
+          method: ANY
+          path: '{proxy+}'
