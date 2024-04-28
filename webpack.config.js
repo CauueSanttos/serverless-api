@@ -23,6 +23,12 @@ module.exports = (options, webpack) => {
           return false;
         },
       }),
+      new CopyWebpackPlugin({
+        patterns: [
+          'prisma',
+          'node_modules/.prisma/client/libquery_engine-debian-openssl-3.0.x.so.node',
+        ],
+      }),
     ],
     optimization: {
       minimizer: [
