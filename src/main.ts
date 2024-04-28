@@ -9,11 +9,11 @@ let server: any;
 
 async function bootstrap(): Promise<Handler | void> {
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
-
+  
   app.enableCors();
-
+  
   if (process.env.NODE_ENV === 'dev') {
+    await app.listen(3000);
   } else {
     await app.init();
 
