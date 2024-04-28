@@ -1,4 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = (options, webpack) => {
   const lazyImports = [
